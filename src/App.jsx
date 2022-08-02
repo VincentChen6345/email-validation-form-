@@ -13,19 +13,24 @@ function App() {
 
       return;
     }
+    setEmailInput("");
     return;
   };
   const emailChangeHandler = (e) => {
+    setEmailIsValid(true);
     setEmailInput(e.target.value);
   };
+
   return (
     <div className={classes["main-container"]}>
       <form className={classes.container} onSubmit={submitHandler}>
         <input
           type="email"
           placeholder="Email Address"
-          className={`${classes.input} `}
+          className={`${classes.input} ${!emailIsValid && classes.invalid}`}
+          //the logical AND operator (&&) returns the first falsy value , or the last operand if they are all truthy
           onChange={emailChangeHandler}
+          value={emailInput}
         />
         <button
           className={classes["submit-button"]}
@@ -34,6 +39,15 @@ function App() {
         >
           Submit
         </button>
+        <span
+          className={`${classes.instructions} ${
+            emailIsValid ? classes.hidden : ""
+          }`}
+        >{`${
+          emailInput.trim().length === 0
+            ? "Please enter email address"
+            : "Email address should include @ "
+        }`}</span>
       </form>
     </div>
   );
