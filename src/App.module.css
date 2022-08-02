@@ -1,0 +1,87 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.main-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  width: auto;
+
+  position: relative;
+  display: inline-block;
+}
+.input {
+  font-size: 15px;
+  padding: 15px 25px;
+  border-radius: 30px;
+  border-width: 1px;
+  border-style: solid;
+  width: 250px;
+  border-color: rgb(220, 135, 149);
+}
+.input:focus {
+  outline: none;
+}
+.submit-button {
+  font-size: 15px;
+
+  padding: 16px 25px;
+  border-radius: 30px;
+  border-width: 1px;
+  border-style: initial;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(to right, lightpink, rgb(248, 132, 132));
+  box-shadow: 0 5px 10px 3px rgb(196, 196, 196);
+}
+.submit-button:hover {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 182, 193, 0.9),
+    rgb(248, 132, 132, 0.9)
+  );
+}
+.submit-button:active {
+  background-color: #282c34;
+}
