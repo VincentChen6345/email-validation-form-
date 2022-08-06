@@ -6,10 +6,13 @@ function App() {
   const [emailInput, setEmailInput] = useState("");
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(emailInput);
-    if (emailInput.trim().length === 0 || !emailInput.includes("@")) {
+
+    if (
+      emailInput.trim().length === 0 ||
+      !emailInput.includes("@") ||
+      emailInput.slice(-4) !== ".com"
+    ) {
       setEmailIsValid(false);
-      console.log(emailIsValid);
 
       return;
     }
@@ -19,6 +22,15 @@ function App() {
   const emailChangeHandler = (e) => {
     setEmailIsValid(true);
     setEmailInput(e.target.value);
+  };
+  const errorMessage = () => {
+    if (emailInput.trim().length === 0) {
+      return "Please enter email address";
+    } else if (!emailInput.includes("@")) {
+      return "Email address should include @ ";
+    } else if (emailInput.slice(-4) !== ".com") {
+      return "Valid email should end with .com";
+    }
   };
 
   return (
@@ -43,11 +55,7 @@ function App() {
           className={`${classes.instructions} ${
             emailIsValid ? classes.hidden : ""
           }`}
-        >{`${
-          emailInput.trim().length === 0
-            ? "Please enter email address"
-            : "Email address should include @ "
-        }`}</span>
+        >{`${errorMessage()}`}</span>
       </form>
     </div>
   );
